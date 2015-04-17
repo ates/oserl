@@ -190,8 +190,7 @@ pack_unknown([{Type, Value} | NewBody], Acc) when is_integer(Type) and is_binary
         Error ->
             Error
     end;
-pack_unknown([{Type, Value} | NewBody], Acc) ->
-    lager:info("non-integer type or non-binary value (type = ~p, value = ~p), just skip it~n", [Type, Value]),
+pack_unknown([{_Type, _Value} | NewBody], Acc) ->
     pack_unknown(NewBody, Acc).
 
 unpack_body(BinBody, P) ->
