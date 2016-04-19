@@ -1,0 +1,12 @@
+[{<<"common_lib">>,
+  {git,"https://github.com/ates/common_lib.git",
+       {ref,"5dff7edec74dc3ebb89d0c985f88bfca15635329"}},
+  0},
+ {<<"goldrush">>,
+  {git,"git://github.com/DeadZen/goldrush.git",
+       {ref,"212299233c7e7eb63a97be2777e1c05ebaa58dbe"}},
+  1},
+ {<<"lager">>,
+  {git,"https://github.com/basho/lager.git",
+       {ref,"45fe95ba6cd964b7a667394c4e671a5afe8f5a42"}},
+  0}].
