@@ -586,6 +586,11 @@ handle_peer_operation({CmdId, Pdu}, St) ->
             Params = smpp_operation:merge(PList1, PList2),
             send_response(RespId, ?ESME_ROK, SeqNum, Params, Sock, Log),
             true;
+        {ok, PList1, Code} ->
+            PList2  = [{congestion_state, St#st.congestion_state}],
+            Params = smpp_operation:merge(PList1, PList2),
+            send_response(RespId, Code, SeqNum, Params, Sock, Log),
+            true;
         {error, Error} ->
             send_response(RespId, Error, SeqNum, [], Sock, Log),
             false
