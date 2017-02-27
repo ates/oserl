@@ -222,7 +222,7 @@ split(ParamList, RefNum, udh, MaxSegmentSize) ->
     F = fun(Segment, SeqNum) ->
                 ConcatIe = concat_ie(RefNum, TotalSegments, SeqNum),
                 ShortMessage = udh([ConcatIe | Ies]) ++ Segment,
-                {[{short_message, ShortMessage} | NewParamList], SeqNum + 1}
+                {[{short_message, ShortMessage}, {udh_segment_seqnum, SeqNum} | NewParamList], SeqNum + 1}
         end,
     element(1, lists:mapfoldl(F, 1, Segments));
 split(ParamList, RefNum, sar, MaxSegmentSize) ->
